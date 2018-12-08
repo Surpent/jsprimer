@@ -1,6 +1,6 @@
 "use strict"; // レガシーな書き方とかを例外扱いにしてくれるやつ。最初に書く
 
-// 変数宣言時は const(定数) let(定数以外) を付けないと例外扱いになる
+// 変数宣言時は const, let を付けないと例外扱いになる
 // 変数の大文字・小文字は別物扱いになる
 const TEST = "Hello Work";
 const test = "Hello World";
@@ -13,6 +13,10 @@ console.log(test);
 あいうえお
 かきくけこ
 */
+
+<!-- コメントとして認識される（後方互換性）
+console.log("てすとだよん");
+--> ここもコメント扱い
 
 console.log(Unko);
 Unko = "Toilet Ikitai";
