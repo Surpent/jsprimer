@@ -42,6 +42,8 @@ var _title; // OK: _から開始できる
 var jquery; // OK: アルファベット
 var es2015; // OK: 数字は先頭以外なら利用できる
 var valid日本語; // OK: 先頭以外なら一部Unicode文字も利用可能
+var にほんごでOK = "にほんご"
+console.log(にほんごでOK);
 
 // let と const は同じスコープの中で多重宣言できない
 let bookTitle = "JavaScriptの本";
@@ -165,3 +167,11 @@ const objectTest = {
 
 // OK: ブラケット記法では、文字列として書くことができる
 console.log(objectTest["k"]); // => "bento"
+
+// 配列リテラル
+const emptyArray = []; // 空の配列を作成
+const array = [1, 2, 3]; // 値をもった配列を作成
+
+const arrayTest = ["index:0", "index:1", "index:2"];
+console.log(arrayTest[0]); // => "index:0"
+console.log(arrayTest[arrayTest.length - 1]); // => "index:2"
