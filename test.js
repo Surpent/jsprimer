@@ -7,6 +7,13 @@ const test = "Hello World";
 let Unko = "toilet";
 console.log(TEST);
 console.log(test);
+
+/*
+複数行のこめんと
+あいうえお
+かきくけこ
+*/
+
 console.log(Unko);
 Unko = "Toilet Ikitai";
 console.log(Unko);
