@@ -59,3 +59,15 @@ console.log(Unkoman);
 しかし、多くのケースで代替できる表現があるため必ずしもvarやletを使わなくても実現できます。
 constを使うことでバグに気づきやすくなるため、constを積極的に利用していくことを推奨しています。
 */
+
+// 式について
+// ブラウザのコンソールに 1+1 を入力すると 2 が返ってくる
+
+// Console APIについて
+console.log(1 + 1);
+
+const total = 100 + 10;
+console.log(total);
+
+// エラーについては下記を参照
+// https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Errors
