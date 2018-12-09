@@ -537,3 +537,144 @@ JavaScriptは文（Statement）と式（Expression）から構成される
 ブロックで終わる文は例外的にセミコロンを付けなくてよい
 */
 
+// 条件分岐
+
+//if文
+// 現在の西暦を`year`に代入
+const year = new Date().getFullYear();
+if (year > 2015) {
+    console.log(year);
+}
+
+// 実行する文が1行のみである場合、ブロックは省略が可能ですが、
+// コードの読みにくさに繋がるため常につけることを推奨します。
+
+// else if文
+const version = "ES6";
+if (version === "ES5") {
+    console.log("ECMAScript 5");
+} else if (version === "ES6") {
+    console.log("ECMAScript 2015");
+} else if (version === "ES7") {
+    console.log("ECMAScript 2016");
+}
+
+// else 文
+// if文とelse if文では、条件に一致した場合の処理をブロック内に書いていました。
+// 一方、条件に一致しなかった場合の処理は、else文を使うことでできます。
+
+const str = "JavaScript";
+if (str.length > 0) {
+    console.log(`文字列 "${str}" があります`);
+} else {
+    console.log("空文字列です");
+}
+
+// ネストしたif文
+
+// うるう年のチェック
+const year2 = new Date().getFullYear();
+if (year2 % 4 === 0) { // 4で割り切れる
+    if (year2 % 100 === 0) { // 100で割り切れる
+        if (year2 % 400 === 0) { // 400で割り切れる
+            console.log("うるう年です");
+        } else {
+            console.log("うるう年ではありません");
+        }
+    } else {
+        console.log("うるう年です");
+    }
+} else {
+    console.log("うるう年ではありません");
+}
+
+/*
+条件を上から順に書き下したため、ネストが深い文となってしまっています。
+一般にネストは少ない方が、読みやすいコードとなります。
+
+条件を少し読み解くと、400で割り切れる年は無条件にうるう年であることがわかります。
+
+そのため、条件を並び替えることで、ネストするif文なしに書くことができます。
+*/
+
+const year3 = new Date().getFullYear();
+if (year3 % 400 === 0) { // 400で割り切れる
+    console.log("うるう年です");
+} else if (year3 % 100 === 0) { // 100で割り切れる
+    console.log("うるう年ではありません");
+} else if (year3 % 4 === 0) { // 4で割り切れる
+    console.log("うるう年です");
+} else { // それ以外
+    console.log("うるう年ではありません");
+}
+
+// switch文
+// switch文は次のような構文を持ち、式の評価結果が
+// 指定した値である場合に行う処理を並べて書きます。
+
+const 式 = 100 - 99;
+
+switch (式) {
+    case 1:
+        // `式`の評価結果が`ラベル1`と一致する場合に実行する文
+        console.log("1 です");
+        break;
+    case 100:
+        console.log("100 です");
+    // `式`の評価結果が`ラベル2`である場合に実行する文
+        break;
+    default:
+        // どのcaseにも該当しない場合の処理
+        console.log("該当なし");
+        break;
+}
+// break; 後はここから実行される
+
+
+// break文
+
+// switch文のcase節では基本的にbreak; を使いswitch文を抜けるようにします。
+// このbreak; は省略が可能ですが、省略した場合、後ろに続くcase節が条件に関係なく実行されます。
+
+const version2 = "ES6";
+switch (version2) {
+    case "ES5":
+        console.log("ECMAScript 5");
+    case "ES6": // 一致するケース
+        console.log("ECMAScript 2015");
+    case "ES7": // breakされないため条件無視して実行
+        console.log("ECMAScript 2016");
+    default:    // breakされないため条件無視して実行
+        console.log("しらないバージョンです");
+}
+/*
+ "ECMAScript 2015"
+ "ECMAScript 2016"
+ "しらないバージョンです"
+ と出力される
+ */
+
+/*
+このようにbreak;を忘れてしまうと意図しない挙動となります。 
+そのため、case節とbreak文が多用されているswitch文が出てきた場合、 
+別の方法で書けないかを考えるべきサインとなります。
+
+一般にswitch文はif文の代用として使うのではなく、
+関数と組み合わせて値を返すパターンとして使うことが多いです。
+*/
+
+function getECMAScriptName(version3) {
+    switch (version3) {
+        case "ES5":
+            return "ECMAScript 5";
+        case "ES6":
+            return "ECMAScript 2015";
+        case "ES7":
+            return "ECMAScript 2016";
+        default:
+            return "しらないバージョンです";
+    }
+}
+// 関数を実行して`return`された値を得る
+const ECMAver = getECMAScriptName("ES6"); // => "ECMAScript 2015"
+console.log(ECMAver);
