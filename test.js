@@ -332,5 +332,13 @@ Arrow Functionはfunctionキーワードに比べて、
 
 そのため、functionキーワードよりも
 Arrow Functionを使い実装した方がよいといえるでしょう。
+
+また、もっとも大きな違いとしてArrow Functionではthisの参照先が静的に決定します。
+functionキーワードの関数におけるthisは呼び出し元によって値が異なるため、
+thisが含まれるコードはとても読みにくいものとなっていました。
+Arrow Functionでは、thisがコードを見たまま値が決まるため読みやすいコードとなります。
+
+詳細はn章で解説しますが、このthisの問題を解決できるため
+Arrow Functionの利用を推奨しています。
 */
 
