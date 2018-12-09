@@ -267,3 +267,70 @@ const factorial = function innerFact(n) {
     return n * innerFact(n - 1); // 再帰呼び出し
 };
 console.log(factorial(3)); // => 6
+
+// Arrow Function
+const kansu3 = () => {
+    // 関数を呼び出した時の処理
+    // ...
+    return "modori";
+};
+
+/*
+Arrow Functionには書き方のいくつかパターンがありますが、
+functionキーワードに比べて短く書けるようになっています。 
+また、Arrow Functionには省略記法があり、次の場合にはさらに短く書けます。
+関数の仮引数が1つのときは()を省略できる
+関数の処理が1つの式である場合に、ブロックとreturn文を省略できる
+その式の評価結果をreturnの返り値とする
+*/
+
+// 仮引数の数と定義
+const fnA =     () => { /* 仮引数がないとき */ };
+const fnB =    (x) => { /* 仮引数が1つのみのとき */ };
+const fnC =      x => { /* 仮引数が1つのみのときは()を省略可能 */ };
+const fnD = (x, y) => { /* 仮引数が複数の時 */ };
+// 値の返し方
+// 次の２つの定義は同じ意味となる
+const mulA =     x => { return x * x; } // ブロックの中でreturn
+const mulB = x => x * x;            // 1行のみの場合はreturnとブロックを省略できる
+
+
+/*
+Arrow Functionについては次のような特徴があります。
+
+名前を付けることができない（常に匿名関数）
+thisが静的に決定する（詳細は「関数とスコープ」の章で解説します）
+functionキーワードに比べて短く書くことができる
+newできない（コンストラクタ関数ではない）
+argumentsを持たない
+*/
+
+// functionで書いた場合
+const array = [1, 2, 3];
+// 1,2,3と順番に値が渡されコールバック関数（匿名関数）が処理する
+const doubleArray = array.map(function(value) {
+    return value * 2; // 返した値をまとめた配列ができる
+});
+console.log(doubleArray); // => [2, 4, 6];
+
+// arrow function で書いた場合
+
+/*
+Arrow Functionでは処理が1つの式だけである場合に、
+return文を省略し暗黙的にその式の評価結果をreturnの返り値とします。
+また、Arrow Functionは仮引数が1つである場合は()を省略できます。 
+このような省略はコールバック関数を多用する場合にコードの見通しを良くします。
+*/
+const array2 = [1, 2, 3];
+const doubleArray2 = array2.map(value => value * 2);
+console.log(doubleArray2); // => [2, 4, 6];
+
+/*
+Arrow Functionはfunctionキーワードに比べて、
+できることとできないことがはっきりしています。
+これにより、人による解釈や実装の違いが発生しにくくなり、コード行数も短くなります。
+
+そのため、functionキーワードよりも
+Arrow Functionを使い実装した方がよいといえるでしょう。
+*/
+
