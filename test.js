@@ -181,3 +181,89 @@ function mochiyaki() {
 }
 // 関数オブジェクトにプロパティを追加できる
 mochiyaki.aji = "kinako";
+
+
+// 関数定義
+function suihanki(kome, mizu) {
+    // 関数を呼び出された時の処理
+    // ...
+    return "gohan";
+}
+// 関数呼び出し
+suihanki("Water", "Rice");
+
+
+function kakezan(num) {
+    return num * 2;
+}
+
+console.log(kakezan(10)); // => 20
+
+
+// 値を返していない又は空のreturn;と書いた場合、関数はundefinedを返します。
+function noop() {
+}
+console.log(noop()); // => undefined;
+
+// 可変長引数
+// 関数には引数の数が固定ではなく、可変長である場合があります。
+// たとえば、Math.max(...args)は引数を何個でも受け取り、
+// 受け取った引数の中で最大の値を返します。
+const max = Math.max(1, 5, 10, 20);
+console.log(max); // => 20
+
+
+// arguments
+// argumentsは関数の中でのみ参照できる特殊な変数です。 
+// argumentsは関数に渡された値が入ったArray - likeなオブジェクトです。
+function myFunc() {
+    console.log(arguments[0]); // => "a" 
+    console.log(arguments[1]); // => "b" 
+    console.log(arguments[2]); // => "c" 
+}
+myFunc("a", "b", "c");
+
+
+/*
+ファーストクラスファンクション
+関数が値として扱えることをファーストクラスファンクション（第一級関数）と呼びます。
+JavaScriptは他のオブジェクトと同じように関数を値として扱えるため、
+ファーストクラスファンクションの性質を持っています。
+
+関数を値として定義する場合にも関数宣言と同じくfunctionキーワードを利用します。
+このとき、関数を式（代入する値）として扱うため関数式と呼び、関数宣言とは異なるルールが
+あります。 関数式には呼び名や書き方が幾つかあるためそれぞれの方法を見ていきます。
+*/
+
+// 関数式
+const kansu = function() {
+    // 関数を呼び出した時の処理
+    // ...
+    return "modori";
+};
+
+// 関数宣言では"関数名"は省略できない
+function kansu2() {
+
+}
+// 関数式では変数名があるため"関数名"を省略できる
+const 変数名かつ関数名 = function() {
+};
+
+/*
+このように関数式では、名前を持たない関数を変数に代入できます。
+このような名前を持たない関数を匿名関数（または無名関数）と呼びます。
+
+また、関数式でも関数に名前を付けることもできます。
+この場合、関数式に付けた名前は関数の外からは呼ぶことができません。
+一方、関数の中からは呼ぶことができるため、再帰呼び出しなどに利用されます。
+*/
+
+// innerFactは外からは見えない名前
+const factorial = function innerFact(n) {
+    if (n === 0) {
+        return 1;
+    }
+    return n * innerFact(n - 1); // 再帰呼び出し
+};
+console.log(factorial(3)); // => 6
