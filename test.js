@@ -175,3 +175,9 @@ const array = [1, 2, 3]; // 値をもった配列を作成
 const arrayTest = ["index:0", "index:1", "index:2"];
 console.log(arrayTest[0]); // => "index:0"
 console.log(arrayTest[arrayTest.length - 1]); // => "index:2"
+
+// `mochiyaki`という名前の関数オブジェクトを定義する
+function mochiyaki() {
+}
+// 関数オブジェクトにプロパティを追加できる
+mochiyaki.aji = "kinako";
